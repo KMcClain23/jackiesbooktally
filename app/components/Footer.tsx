@@ -3,7 +3,7 @@ import { AiFillAmazonCircle, AiFillAmazonSquare } from 'react-icons/ai';
 
 export default function Footer() {
   return (
-<footer className="absolute bottom-0 left-0 w-full md:relative md:bottom-auto md:mt-4 bg-pink-200/80 text-white py-4 w-1/2 md:w-40% mx-auto flex justify-center items-center rounded-xl">
+<footer className="absolute bottom-0 left-0 w-full md:relative md:bottom-auto md:my-6 -mt-4 bg-pink-200/80 text-white py-4 md:1/2 mx-auto flex justify-center items-center rounded-xl">
       <div className="flex space-x-6">
         <a
           href="https://www.instagram.com/jackiesbooktally"
