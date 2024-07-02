@@ -36,7 +36,7 @@ export default function NavBar() {
   const [hoveredPath, setHoveredPath] = useState(pathname);
 
   return (
-    <div className="border border-stone-800/90 p-[0.4rem] rounded-lg mb-12 sticky top-4 z-[100] bg-stone-900/80 backdrop-blur-md">
+    <div className="border border-stone-800/90 p-[0.4rem] rounded-lg mb-6 sticky top-4 z-[100] bg-stone-900/80 backdrop-blur-md">
       <nav className="flex gap-2 relative justify-start w-full z-[100] rounded-lg">
         {navItems.map((item) => {
           const isActive = item.path === pathname;
