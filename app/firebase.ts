@@ -24,7 +24,7 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 // Authentication
-const signUp = async (email, password) => {
+const signUp = async (email: string, password: string) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     return userCredential.user;
@@ -34,7 +34,7 @@ const signUp = async (email, password) => {
   }
 };
 
-const signIn = async (email, password) => {
+const signIn = async (email: string, password: string) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;
@@ -53,7 +53,7 @@ const signOutUser = async () => {
   }
 };
 
-const resetPassword = async (email) => {
+const resetPassword = async (email: string) => {
   try {
     await sendPasswordResetEmail(auth, email);
   } catch (error) {
@@ -63,7 +63,7 @@ const resetPassword = async (email) => {
 };
 
 // Firestore
-const createDocument = async (collectionName, data) => {
+const createDocument = async (collectionName: string, data: any) => {
   try {
     const docRef = await addDoc(collection(db, collectionName), data);
     return docRef.id;
@@ -73,7 +73,7 @@ const createDocument = async (collectionName, data) => {
   }
 };
 
-const readDocument = async (collectionName, docId) => {
+const readDocument = async (collectionName: string, docId: string) => {
   try {
     const docRef = doc(db, collectionName, docId);
     const docSnap = await getDoc(docRef);
@@ -84,7 +84,7 @@ const readDocument = async (collectionName, docId) => {
   }
 };
 
-const updateDocument = async (collectionName, docId, data) => {
+const updateDocument = async (collectionName: string, docId: string, data: any) => {
   try {
     const docRef = doc(db, collectionName, docId);
     await updateDoc(docRef, data);
@@ -94,7 +94,7 @@ const updateDocument = async (collectionName, docId, data) => {
   }
 };
 
-const deleteDocument = async (collectionName, docId) => {
+const deleteDocument = async (collectionName: string, docId: string) => {
   try {
     const docRef = doc(db, collectionName, docId);
     await deleteDoc(docRef);

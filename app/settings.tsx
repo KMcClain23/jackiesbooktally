@@ -53,7 +53,8 @@ export default function SettingsPage() {
       setNewEmail(''); 
       // Firebase automatically sends a verification email.
       // User object in context will update on next auth state change or token refresh.
-    } catch (err: any)      setError(err.message || 'Failed to update email. You may need to sign in again recently.');
+    } catch (err: any) {
+      setError(err.message || 'Failed to update email. You may need to sign in again recently.');
     }
   };
 
