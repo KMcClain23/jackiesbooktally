@@ -3,13 +3,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 import { getFirestore, collection, doc, setDoc, getDoc, updateDoc, deleteDoc, addDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAVjdMzHqAdwqiHyibBE2PARG67lPNUCRo",
-  authDomain: "jackie-s-book-tally.firebaseapp.com",
-  projectId: "jackie-s-book-tally",
-  storageBucket: "jackie-s-book-tally.firebasestorage.app",
-  messagingSenderId: "329382609229",
-  appId: "1:329382609229:web:30c5d67bbfec8ed7b5f704",
-  measurementId: "G-LRQTRN4DYR"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
