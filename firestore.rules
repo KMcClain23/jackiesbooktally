@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Rules for the 'books' collection
+    match /books/{bookId} {
+      // Allow any authenticated user to read any book
+      allow read: if request.auth != null;
+
+      // Allow authenticated users to create books
+      // The `userId` field must be set to the creator's uid
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+
+      // Allow users to update or delete a book only if they are the owner
+      allow update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+
+    // Rules for the 'recommendations' subcollection under each user
+    // Assumes a 'users' collection where each document is a user profile
+    match /users/{userId}/recommendations/{recommendationId} {
+      // Allow any authenticated user to read any recommendation
+      allow read: if request.auth != null;
+
+      // Allow a user to create recommendations for their own profile
+      allow create: if request.auth != null && request.auth.uid == userId;
+
+      // Allow a user to update or delete their own recommendations
+      allow update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
