@@ -62,6 +62,7 @@ export default function NavBar() {
     // Authenticated user
     navItems = [
       { path: "/", name: "Home" },
+      { path: "/crestbid", name: "CrestBid Dashboard" }, // Added link
       { path: "/profile", name: "Profile" },
       { path: "/settings", name: "Settings" },
       { path: "/blog", name: "Blog" },
